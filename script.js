@@ -7,6 +7,8 @@ $(function(){
     var qtd_numeros = document.getElementById("qtd_numeros");
     var qtd_jogos = document.getElementById("qtd_jogos");
     var jogosDiv = $(".jogos");
+    let numeroJogados = 6;
+    let numeroCartelas = 1;
 
 
     // ********************************************************
@@ -22,13 +24,45 @@ $(function(){
         geraNumeros(qtd_numeros.value, qtd_jogos.value);
     });
 
+    $(".qtd_numeros .menos").on("click", function(){
+        numeroJogados--;
+        if(numeroJogados < 6) {
+            numeroJogados = 6;
+        }
+        $(this).next().val(numeroJogados);
+    });
+
+    $(".qtd_numeros .mais").on("click", function(){
+        numeroJogados++;
+        if(numeroJogados > 20) {
+            numeroJogados = 20;
+        }
+        $(this).prev().val(numeroJogados);
+    });
+
+    $(".qtd_jogos .menos").on("click", function(){
+        numeroCartelas--;
+        if(numeroCartelas < 1) {
+            numeroCartelas = 1;
+        }
+        $(this).next().val(numeroCartelas);
+    });
+
+    $(".qtd_jogos .mais").on("click", function(){
+        numeroCartelas++;
+        $(this).prev().val(numeroCartelas);
+    });
+
+    $(".reload").on("click", function(){
+        jogosDiv.slideUp(240);
+        $("#valorTotal").text("R$ 0,00");
+    });
+
 
     // ********************************************************
     // funções
 
     const preencheDados = () => {
-        const numerosCartela = document.getElementById("numerosCartela");
-        const numeroJogos = document.getElementById("numeroJogos");
         const valorTotal = document.getElementById("valorTotal");
         const regras = {
             "6": 4.5,
@@ -47,9 +81,6 @@ $(function(){
             "19": 122094,
             "20": 174420,
         }
-
-        numerosCartela.innerText = qtd_numeros.value;
-        numeroJogos.innerText = qtd_jogos.value;
 
         const valor = regras[qtd_numeros.value] * qtd_jogos.value;
         valorTotal.innerText = valor.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
@@ -80,13 +111,14 @@ $(function(){
                 bola += '<div class="bola">'+numero+'</div>';
             });
             
-            linha += '<div class="linha"><span class="numero-jogo">Jogo '+i+'</span>'+bola+'</div>';
+            linha += '<div class="linha"><div class="numero-jogo">Jogo '+i+'</div><div class="numeros-sorteados">'+bola+'</div></div>';
 
             bola = "";
         }
         
-        jogosDiv.html(linha).addClass("active");
+        jogosDiv.html(linha).slideDown(240).css("display", "flex");
         
     }
+    
 
 });
