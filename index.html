@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script src="script.js" defer></script>
+    <title>Mega Sena</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header">
+            <img src="./img/mega.jpg" alt="">
+        </div>
+
+        <div class="main">
+
+            <h1>Gerador de Mega Sena</h1>
+
+            <form class="inputs">
+
+                <input type="number" required placeholder="Quantidade de Números" class="input_sena" id="qtd_numeros">
+                <input type="number" required placeholder="Quantidade de Jogos" class="input_sena" id="qtd_jogos">
+                <button class="input_sena" id="gerar">Gerar números</button>
+
+            </form>
+
+            <div class="resultados" id="resultados">
+                <div class="jogos"></div>
+            </div>
+
+            <div class="valores">
+                <h3>Quantidade de numeros por cartela: <span id="numerosCartela">0</span></h3>
+                <h3>Quantidade de jogos feito: <span id="numeroJogos">0</span></h3>
+                <h3>Valor a ser pago: <span id="valorTotal">R$0,00</span></h3>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
