@@ -5,11 +5,9 @@
 }
 
 body{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 100%;
     min-height: 100vh;
-   margin: 20px 0;
+    padding: 20px 0;
     background-color: aquamarine;
 }
 
@@ -19,8 +17,7 @@ body{
     max-width: 900px;
     background-color: #fff;
     text-align: center;
-    padding-bottom: 48px;
-   
+    margin: 0 auto;
 }
 
 .container .header{
@@ -36,7 +33,7 @@ body{
 }
 
 .main{
-    padding-top: 48px ;
+    padding: 48px 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -88,6 +85,7 @@ body{
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
 .main .resultados .bola {
@@ -120,6 +118,24 @@ body{
     .main .inputs{
         flex-direction: column;
         align-items: center;
+        width: 100%;
+    }
+
+    .linha {
+        padding: 24px 0;
+        border-bottom: 1px solid #0E6930;
+    }
+
+    .numero-jogo {
+        position: absolute;
+        top: 0px;
+        text-transform: uppercase;
+        font-weight: 600;
+        color: #0E6930;
+    }
+
+    .main .inputs .input_sena {
+        width: 100%;
     }
     .container{
        width: 100%;
@@ -132,9 +148,6 @@ body{
     }
 }
 @media(max-width:400px){
-    body{
-        border: 2px solid red;
-    }
     
     .main .inputs{
         flex-direction: column;
